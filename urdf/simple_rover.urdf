@@ -125,7 +125,7 @@
     <origin xyz="-0.15 -0.225 0"/>
     <axis xyz="0 1 0"/>
         <limit effort="10000" velocity="1000"/>
-    <joint_properties damping="1.0" friction="1.0"/>
+    <dynamics damping="1.0" friction="1.0"/>
   </joint>
 
   <joint name="back_left_wheel_joint" type="continuous">
@@ -134,7 +134,7 @@
     <origin xyz="-0.15 0.225 0"/>
     <axis xyz="0 1 0"/>
         <limit effort="10000" velocity="1000"/>
-    <joint_properties damping="1.0" friction="1.0"/>
+    <dynamics damping="1.0" friction="1.0"/>
   </joint>
 
   <joint name="front_left_wheel_joint" type="continuous">
@@ -143,7 +143,7 @@
     <origin xyz="0.15 0.225 0"/>
     <axis xyz="0 1 0"/>
         <limit effort="10000" velocity="1000"/>
-    <joint_properties damping="1.0" friction="1.0"/>
+    <dynamics damping="1.0" friction="1.0"/>
   </joint>
 
   <joint name="front_right_wheel_joint" type="continuous">
@@ -152,7 +152,7 @@
     <origin xyz="0.15 -0.225 0"/>
     <axis xyz="0 1 0"/>
         <limit effort="10000" velocity="1000"/>
-    <joint_properties damping="1.0" friction="1.0"/>
+    <dynamics damping="1.0" friction="1.0"/>
   </joint>
 
     <gazebo reference="front_right_wheel">

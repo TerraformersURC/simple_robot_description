@@ -43,6 +43,7 @@ def generate_launch_description():
     # create and return launch description object
     return LaunchDescription(
         [            
-            robot_state_publisher_node
+            robot_state_publisher_node,
+            rviz_node
         ]
     )

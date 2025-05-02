@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot
+  name="URDF Model">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0098261 0.07766 -0.0073306"
+        rpy="0 0 0" />
+      <mass
+        value="7.1326" />
+      <inertia
+        ixx="0.045759"
+        ixy="-0.00012532"
+        ixz="-0.00042172"
+        iyy="0.052041"
+        iyz="2.6125E-05"
+        izz="0.036293" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/base_link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/base_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Left Rocker">
+    <inertial>
+      <origin
+        xyz="0.036672 -0.11778 0.0031826"
+        rpy="0 0 0" />
+      <mass
+        value="0.92496" />
+      <inertia
+        ixx="0.0014371"
+        ixy="8.6738E-06"
+        ixz="-2.6572E-07"
+        iyy="0.00085497"
+        iyz="3.221E-07"
+        izz="0.00086547" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Left_Rocker.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Left_Rocker.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left Rocker Joint"
+    type="revolute">
+    <origin
+      xyz="0.16901 0 0"
+      rpy="1.596 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left Rocker" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Front Left Wheel">
+    <inertial>
+      <origin
+        xyz="-6.0962E-07 -0.066324 4.1684E-08"
+        rpy="0 0 0" />
+      <mass
+        value="2.5634" />
+      <inertia
+        ixx="0.011745"
+        ixy="-2.3082E-08"
+        ixz="-5.2422E-10"
+        iyy="0.018944"
+        iyz="1.9477E-09"
+        izz="0.011745" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Front_Left_Wheel.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Front_Left_Wheel.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front Left Wheel Joint"
+    type="revolute">
+    <origin
+      xyz="0.065325 -0.17676 0.2723"
+      rpy="3.1416 0.84067 -1.5708" />
+    <parent
+      link="Left Rocker" />
+    <child
+      link="Front Left Wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Rear Left Wheel">
+    <inertial>
+      <origin
+        xyz="-6.0962E-07 -0.066324 4.1684E-08"
+        rpy="0 0 0" />
+      <mass
+        value="2.5634" />
+      <inertia
+        ixx="0.011745"
+        ixy="-2.3082E-08"
+        ixz="-5.2422E-10"
+        iyy="0.018944"
+        iyz="1.9477E-09"
+        izz="0.011745" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Rear_Left_Wheel.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Rear_Left_Wheel.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rear Left Wheel Joint"
+    type="revolute">
+    <origin
+      xyz="0.065325 -0.19309 -0.26097"
+      rpy="0 0.025218 1.5708" />
+    <parent
+      link="Left Rocker" />
+    <child
+      link="Rear Left Wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Right Rocker">
+    <inertial>
+      <origin
+        xyz="-0.036672 -0.1176 -0.0016165"
+        rpy="0 0 0" />
+      <mass
+        value="0.92496" />
+      <inertia
+        ixx="0.0014371"
+        ixy="-8.5858E-06"
+        ixz="-2.7847E-07"
+        iyy="0.00085314"
+        iyz="-1.402E-06"
+        izz="0.0008673" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Right_Rocker.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Right_Rocker.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right Rocker Joint"
+    type="revolute">
+    <origin
+      xyz="-0.16902 0 0"
+      rpy="1.5516 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right Rocker" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Front Right Wheel">
+    <inertial>
+      <origin
+        xyz="-6.0962E-07 -0.066324 4.1684E-08"
+        rpy="0 0 0" />
+      <mass
+        value="2.5634" />
+      <inertia
+        ixx="0.011745"
+        ixy="-2.3082E-08"
+        ixz="-5.2422E-10"
+        iyy="0.018944"
+        iyz="1.9477E-09"
+        izz="0.011745" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Front_Right_Wheel.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Front_Right_Wheel.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front Right Wheel Joint"
+    type="revolute">
+    <origin
+      xyz="-0.065325 -0.18923 0.26378"
+      rpy="0 0.019168 -1.5708" />
+    <parent
+      link="Right Rocker" />
+    <child
+      link="Front Right Wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Rear Right Wheel">
+    <inertial>
+      <origin
+        xyz="-6.0962E-07 -0.066324 4.1684E-08"
+        rpy="0 0 0" />
+      <mass
+        value="2.5634" />
+      <inertia
+        ixx="0.011745"
+        ixy="-2.3082E-08"
+        ixz="-5.2422E-10"
+        iyy="0.018944"
+        iyz="1.9477E-09"
+        izz="0.011745" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Rear_Right_Wheel.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://simple_robot_description/meshes/Rear_Right_Wheel.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rear Right Wheel Joint"
+    type="revolute">
+    <origin
+      xyz="-0.065325 -0.18074 -0.26967"
+      rpy="0 0.019168 -1.5708" />
+    <parent
+      link="Right Rocker" />
+    <child
+      link="Rear Right Wheel" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

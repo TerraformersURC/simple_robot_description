@@ -388,6 +388,8 @@
       <joint_name>back_pitch_joint</joint_name>
       
     </plugin>
+
+    
   </gazebo>
 
   <!-- Differential drive -->

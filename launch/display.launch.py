@@ -9,7 +9,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     ####### DATA INPUT ##########
-    urdf_file = 'simple_rover.urdf'
+    urdf_file = 'rover.urdf'
     #xacro_file = "urdfbot.xacro"
     package_description = "simple_robot_description"
 

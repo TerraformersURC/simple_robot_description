@@ -101,7 +101,7 @@
       velocity="0" />
   </joint>
   <link
-    name="Front Left Wheel">
+    name="front_left_wheel">
     <inertial>
       <origin
         xyz="-6.0962E-07 -0.066324 4.1684E-08"
@@ -141,25 +141,26 @@
     </collision>
   </link>
   <joint
-    name="Front Left Wheel Joint"
-    type="revolute">
+    name="front_left_wheel_joint"
+    type="continuous">
     <origin
       xyz="0.065325 -0.17676 0.2723"
-      rpy="3.1416 0.84067 -1.5708" />
+      rpy="0 0 1.5708" />
     <parent
       link="Left Rocker" />
     <child
-      link="Front Left Wheel" />
+      link="front_left_wheel" />
     <axis
       xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      effort="5"
+      velocity="10" />
+    <dynamics
+      damping="0.05" 
+      friction="0" />
   </joint>
   <link
-    name="Rear Left Wheel">
+    name="rear_left_wheel">
     <inertial>
       <origin
         xyz="-6.0962E-07 -0.066324 4.1684E-08"
@@ -199,22 +200,23 @@
     </collision>
   </link>
   <joint
-    name="Rear Left Wheel Joint"
-    type="revolute">
+    name="rear_left_wheel_joint"
+    type="continuous">
     <origin
       xyz="0.065325 -0.19309 -0.26097"
       rpy="0 0.025218 1.5708" />
     <parent
       link="Left Rocker" />
     <child
-      link="Rear Left Wheel" />
+      link="rear_left_wheel" />
     <axis
       xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      effort="5"
+      velocity="10" />
+    <dynamics
+      damping="0.05" 
+      friction="0" />
   </joint>
   <link
     name="Right Rocker">
@@ -275,7 +277,7 @@
       velocity="0" />
   </joint>
   <link
-    name="Front Right Wheel">
+    name="front_right_wheel">
     <inertial>
       <origin
         xyz="-6.0962E-07 -0.066324 4.1684E-08"
@@ -315,25 +317,26 @@
     </collision>
   </link>
   <joint
-    name="Front Right Wheel Joint"
-    type="revolute">
+    name="front_right_wheel_joint"
+    type="continuous">
     <origin
       xyz="-0.065325 -0.18923 0.26378"
       rpy="0 0.019168 -1.5708" />
     <parent
       link="Right Rocker" />
     <child
-      link="Front Right Wheel" />
+      link="front_right_wheel" />
     <axis
       xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      effort="5"
+      velocity="10" />
+    <dynamics
+      damping="0.05" 
+      friction="0" /> 
   </joint>
   <link
-    name="Rear Right Wheel">
+    name="rear_right_wheel">
     <inertial>
       <origin
         xyz="-6.0962E-07 -0.066324 4.1684E-08"
@@ -373,21 +376,52 @@
     </collision>
   </link>
   <joint
-    name="Rear Right Wheel Joint"
-    type="revolute">
+    name="rear_right_wheel_joint"
+    type="continuous">
     <origin
       xyz="-0.065325 -0.18074 -0.26967"
       rpy="0 0.019168 -1.5708" />
     <parent
       link="Right Rocker" />
     <child
-      link="Rear Right Wheel" />
+      link="rear_right_wheel" />
     <axis
       xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      effort="5"
+      velocity="10" />
+    <dynamics
+      damping="0.05" 
+      friction="0" />  
   </joint>
+
+<!-- PLUGINS -->
+
+  <!-- Differential drive -->
+  <gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+
+      <!-- wheels -->
+      <left_joint>front_left_wheel_joint</left_joint>
+      <right_joint>front_right_wheel_joint</right_joint>
+
+      <!-- kinematics -->
+      <wheel_separation>.4687</wheel_separation>
+      <!-- TODO diameter calculated based off of moment of inertia and mass, measure it later-->
+      <wheel_diameter>0.2431</wheel_diameter>
+
+      <!-- limits -->
+      <max_wheel_torque>1.0</max_wheel_torque>
+      <max_wheel_acceleration>2.0</max_wheel_acceleration>
+
+      <!-- output -->
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+
+    </plugin>
+  </gazebo>
+
 </robot>

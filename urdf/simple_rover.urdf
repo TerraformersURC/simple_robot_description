@@ -123,7 +123,7 @@
     <parent link = "base_link"/>
     <child link = "back_right_wheel"/>
     <origin xyz="-0.15 -0.225 0"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
         <limit effort="10000" velocity="1000"/>
     <joint_properties damping="1.0" friction="1.0"/>
   </joint>
@@ -150,7 +150,7 @@
     <parent link = "base_link"/>
     <child link = "front_right_wheel"/>
     <origin xyz="0.15 -0.225 0"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
         <limit effort="10000" velocity="1000"/>
     <joint_properties damping="1.0" friction="1.0"/>
   </joint>

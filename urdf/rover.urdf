@@ -151,7 +151,7 @@
     <child
       link="front_left_wheel" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 -1 0" />
     <limit
       effort="5"
       velocity="10" />
@@ -210,7 +210,7 @@
     <child
       link="rear_left_wheel" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 -1 0" />
     <limit
       effort="5"
       velocity="10" />
@@ -395,15 +395,53 @@
       friction="0" />  
   </joint>
 
+  <gazebo reference="front_right_wheel">
+    <kp>1000000.0</kp>
+    <kd>14.0</kd>
+    <mu1>50000.0</mu1>
+    <mu2>50000.0</mu2>
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="front_left_wheel">
+    <kp>1000000.0</kp>
+    <kd>14.0</kd>
+    <mu1>50000.0</mu1>
+    <mu2>50000.0</mu2>
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
+  <gazebo reference="rear_left_wheel">
+    <kp>1000000.0</kp>
+    <kd>14.0</kd>
+    <mu1>50000.0</mu1>
+    <mu2>50000.0</mu2>
+    <material>Gazebo/Gray</material>
+  </gazebo>
+  <gazebo reference="rear_right_wheel">
+    <kp>1000000.0</kp>
+    <kd>14.0</kd>
+    <mu1>50000.0</mu1>
+    <mu2>50000.0</mu2>
+    <material>Gazebo/Gray</material>
+  </gazebo>
+
 <!-- PLUGINS -->
 
   <!-- Differential drive -->
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
 
+      <ros>
+        <namespace></namespace>
+      </ros>
+
       <!-- wheels -->
+      <num_wheel_pairs>2</num_wheel_pairs>
       <left_joint>front_left_wheel_joint</left_joint>
       <right_joint>front_right_wheel_joint</right_joint>
+      <left_joint>rear_left_wheel_joint</left_joint>
+      <right_joint>rear_right_wheel_joint</right_joint> 
 
       <!-- kinematics -->
       <wheel_separation>.4687</wheel_separation>
@@ -411,8 +449,11 @@
       <wheel_diameter>0.2431</wheel_diameter>
 
       <!-- limits -->
-      <max_wheel_torque>1.0</max_wheel_torque>
-      <max_wheel_acceleration>2.0</max_wheel_acceleration>
+      <max_wheel_torque>10000</max_wheel_torque>
+      <max_wheel_acceleration>250</max_wheel_acceleration>
+
+      <!-- input -->
+      <command_topic>cmd_vel</command_topic>
 
       <!-- output -->
       <publish_odom>true</publish_odom>
